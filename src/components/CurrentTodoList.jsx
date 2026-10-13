@@ -164,10 +164,8 @@ export function CurrentTodoList() {
                       endAdornment: (
                         <InputAdornment position="end">
                           <IconButton
+                            type="submit"
                             aria-label="submit"
-                            onClick={() => {
-                              document.activeElement.blur();
-                            }}
                             edge="end"
                           >
                             <Send />
