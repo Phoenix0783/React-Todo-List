@@ -1,0 +1,802 @@
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+.app-shell {
+  min-height: 100vh;
+  color: var(--app-text);
+  background:
+    radial-gradient(ellipse at 88% 18%, var(--ambient-glow), transparent 31%),
+    var(--page-background);
+  --app-text: #202943;
+  --muted-text: #68758d;
+  --primary-accent: #435cf5;
+  --secondary-accent: #ed6683;
+  --page-background: #f3f6fc;
+  --ambient-glow: rgba(79, 111, 255, 0.12);
+  --header-background: rgba(255, 255, 255, 0.92);
+  --sidebar-background: rgba(255, 255, 255, 0.78);
+  --panel-background: rgba(255, 255, 255, 0.94);
+  --subtle-background: #f4f6ff;
+  --accent-soft: #e9edff;
+  --accent-hover: #e8edff;
+  --accent-selected: #e9edff;
+  --divider-color: #e1e7f2;
+  --item-divider: #e9edf5;
+  --item-text: #35415a;
+  --checked-text: #8792a6;
+  --progress-card-bg: linear-gradient(155deg, #ffffff, #eff3ff);
+  --progress-card-border: #dce5ff;
+  --progress-track: #dfe6fa;
+  --progress-accent: linear-gradient(90deg, #435cf5, #26b9c9);
+  --progress-note-bg: #e8eeff;
+}
+
+.app-shell[data-theme='dark'] {
+  --app-text: #f2f7ff;
+  --muted-text: #a4b3c8;
+  --primary-accent: #28e0cf;
+  --secondary-accent: #ff8a72;
+  --page-background: #0b111b;
+  --ambient-glow: rgba(39, 224, 207, 0.15);
+  --header-background: rgba(15, 24, 37, 0.97);
+  --sidebar-background: rgba(17, 27, 42, 0.94);
+  --panel-background: rgba(21, 31, 45, 0.98);
+  --subtle-background: #1b2a3b;
+  --accent-soft: #123f45;
+  --accent-hover: #1b414a;
+  --accent-selected: #173e49;
+  --divider-color: #2c3b50;
+  --item-divider: #27364a;
+  --item-text: #e2ebf7;
+  --checked-text: #91a0b7;
+  --progress-card-bg: linear-gradient(155deg, #192b3c, #18283b 55%, #15343e);
+  --progress-card-border: #2f5365;
+  --progress-track: #2b4053;
+  --progress-accent: linear-gradient(90deg, #29e2d0, #4c9cff);
+  --progress-note-bg: #203c4c;
+}
+
+.app-header.MuiAppBar-root {
+  color: var(--app-text);
+  background: var(--header-background);
+  box-shadow: 0 1px 0 rgba(37, 38, 64, 0.07);
+  backdrop-filter: blur(16px);
+}
+
+.app-header .MuiToolbar-root {
+  min-height: 72px;
+  padding: 0 32px;
+}
+
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 13px;
+  color: #fff;
+  background: linear-gradient(145deg, #6680ff, #354ee0);
+  box-shadow: 0 7px 17px rgba(67, 92, 245, 0.28);
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.brand-title.MuiTypography-root {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  line-height: 1.15;
+}
+
+.brand-caption.MuiTypography-root {
+  margin-top: 3px;
+  color: #9293a6;
+  font-size: 11px;
+  letter-spacing: 0.2px;
+}
+
+.header-add-button.MuiIconButton-root {
+  width: 42px;
+  height: 42px;
+  margin-left: 12px;
+  border-radius: 14px;
+  color: #354ee0;
+  background: #e9edff;
+  transition:
+    transform 160ms ease,
+    background-color 160ms ease;
+}
+
+.header-theme-button.MuiIconButton-root {
+  width: 42px;
+  height: 42px;
+  margin-left: 8px;
+  border-radius: 14px;
+  color: #d47a12;
+  background: #fff1d9;
+  transition:
+    transform 160ms ease,
+    background-color 160ms ease;
+}
+
+.header-theme-button.MuiIconButton-root:hover {
+  transform: translateY(-1px);
+  background: #ffe7bd;
+}
+
+.app-shell[data-theme='dark'] .header-theme-button.MuiIconButton-root {
+  color: #ffc857;
+  background: #3b3024;
+}
+
+.app-shell[data-theme='dark'] .header-theme-button.MuiIconButton-root:hover {
+  background: #51402a;
+}
+
+.header-add-button.MuiIconButton-root:hover {
+  transform: translateY(-1px);
+  background: #dce3ff;
+}
+
+.lists-drawer .MuiDrawer-paper {
+  top: 72px;
+  height: calc(100% - 72px);
+  overflow-x: hidden;
+  border: 0;
+  border-right: 1px solid rgba(37, 38, 64, 0.055);
+  background: var(--sidebar-background);
+  padding: 24px 16px;
+}
+
+.lists-drawer .MuiToolbar-root {
+  display: none;
+}
+
+.lists-rail-content {
+  padding: 0 4px;
+}
+
+.rail-label.MuiTypography-root {
+  padding: 0 12px;
+  color: var(--muted-text);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.25px;
+}
+
+.lists-navigation.MuiList-root {
+  padding-top: 12px;
+}
+
+.list-navigation-item.MuiListItemButton-root {
+  min-height: 46px;
+  margin: 3px 0;
+  padding: 0 12px;
+  border-radius: 12px;
+  color: var(--muted-text);
+  transition:
+    color 160ms ease,
+    background-color 160ms ease,
+    transform 160ms ease;
+}
+
+.list-navigation-item.MuiListItemButton-root:hover {
+  color: #2e43ce;
+  background: var(--accent-hover);
+  transform: translateX(2px);
+}
+
+.list-navigation-item.MuiListItemButton-root.Mui-selected {
+  color: #2e43ce;
+  background: var(--accent-selected);
+  font-weight: 600;
+  box-shadow: inset 3px 0 #435cf5;
+}
+
+.list-navigation-item .MuiSvgIcon-root {
+  color: inherit;
+  font-size: 20px;
+}
+
+.list-navigation-item .MuiListItemText-root {
+  margin-left: 12px;
+}
+
+.list-navigation-item .MuiListItemText-primary {
+  overflow: hidden;
+  font-size: 13px;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.current-list-page.MuiBox-root {
+  min-width: 0;
+  padding: 72px 40px 52px 32px;
+}
+
+.current-list-page > .MuiToolbar-root {
+  display: none;
+}
+
+.focus-layout {
+  display: grid;
+  width: 100%;
+  grid-template-areas: 'pulse tasks';
+  grid-template-columns: minmax(220px, 260px) minmax(0, 1fr);
+  align-items: start;
+  gap: 20px;
+  margin: 24px 0 0;
+}
+
+.focus-layout.is-empty {
+  display: block;
+}
+
+.todo-panel {
+  grid-area: tasks;
+  width: 100%;
+  min-width: 0;
+  min-height: 440px;
+  margin: 0;
+  padding: 34px 38px;
+  border: 1px solid #e5eaf4;
+  border-radius: 22px;
+  background: var(--panel-background);
+  box-shadow:
+    0 20px 60px rgba(46, 66, 112, 0.075),
+    0 2px 8px rgba(46, 66, 112, 0.035);
+}
+
+.progress-card {
+  grid-area: pulse;
+  position: relative;
+  overflow: hidden;
+  margin-top: 0;
+  padding: 25px 22px 20px;
+  border: 1px solid var(--progress-card-border);
+  border-radius: 20px;
+  background: var(--progress-card-bg);
+  box-shadow: 0 16px 36px rgba(46, 66, 112, 0.08);
+}
+
+.progress-card-accent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 4px;
+  background: var(--progress-accent);
+}
+
+.progress-eyebrow.MuiTypography-root {
+  color: var(--muted-text);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+}
+
+.progress-title.MuiTypography-root {
+  margin-top: 16px;
+  color: var(--app-text);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.45px;
+  line-height: 1.25;
+}
+
+.progress-description.MuiTypography-root {
+  margin-top: 8px;
+  color: var(--muted-text);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.progress-count {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  margin-top: 26px;
+}
+
+.progress-completed.MuiTypography-root {
+  color: var(--primary-accent, #435cf5);
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: -1.5px;
+  line-height: 1;
+}
+
+.progress-total.MuiTypography-root {
+  color: var(--muted-text);
+  font-size: 13px;
+}
+
+.progress-bar.MuiLinearProgress-root {
+  height: 8px;
+  margin-top: 15px;
+  overflow: hidden;
+  border-radius: 99px;
+  background: var(--progress-track);
+}
+
+.progress-bar .MuiLinearProgress-bar {
+  border-radius: inherit;
+  background: var(--progress-accent);
+}
+
+.progress-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 9px;
+}
+
+.progress-footer .MuiTypography-root {
+  color: var(--muted-text);
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.progress-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin-top: 22px;
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--progress-note-bg);
+}
+
+.progress-note .MuiSvgIcon-root {
+  flex: 0 0 auto;
+  color: var(--secondary-accent, #ed6683);
+  font-size: 17px;
+}
+
+.progress-note .MuiTypography-root {
+  color: var(--item-text);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.list-heading {
+  gap: 16px;
+  margin-bottom: 26px !important;
+}
+
+.list-heading-icon {
+  width: 54px;
+  height: 54px;
+  flex: 0 0 54px;
+  align-items: center;
+  justify-content: center;
+  border: 0 !important;
+  border-radius: 17px !important;
+  color: #354ee0;
+  background: linear-gradient(145deg, #edf0ff, #e2e8ff);
+}
+
+.list-heading-icon .MuiSvgIcon-root {
+  font-size: 28px;
+}
+
+.list-name-field .MuiInputBase-root {
+  color: var(--app-text);
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: -0.7px;
+}
+
+.list-name-field .MuiInputBase-root:before,
+.list-name-field .MuiInputBase-root:after {
+  display: none;
+}
+
+.todo-divider.MuiDivider-root {
+  border-color: var(--divider-color);
+}
+
+.todo-items.MuiList-root {
+  margin-top: 18px;
+  padding: 0;
+  background: transparent;
+}
+
+.todo-item.MuiListItem-root {
+  min-height: 54px;
+  padding: 3px 8px 3px 0;
+  border-bottom: 1px solid var(--item-divider);
+  transition: background-color 140ms ease;
+}
+
+.todo-item.MuiListItem-root:hover {
+  background: var(--subtle-background);
+}
+
+.todo-item .MuiListItemButton-root {
+  min-height: 48px;
+  padding: 0 8px;
+  border-radius: 10px;
+}
+
+.todo-item .MuiCheckbox-root {
+  color: #c9c8d9;
+}
+
+.todo-item .MuiCheckbox-root.Mui-checked {
+  color: #435cf5;
+}
+
+.todo-item-field .MuiInputBase-root {
+  color: var(--item-text);
+  font-size: 14px;
+}
+
+.todo-item-field .MuiInputBase-root:before,
+.todo-item-field .MuiInputBase-root:after {
+  display: none;
+}
+
+.todo-item.is-checked .todo-item-field .MuiInputBase-root {
+  color: var(--checked-text);
+  text-decoration: line-through;
+}
+
+.todo-item .MuiIconButton-root {
+  color: var(--muted-text);
+  opacity: 0;
+  transition:
+    color 140ms ease,
+    opacity 140ms ease;
+}
+
+.todo-item:hover .MuiIconButton-root,
+.todo-item .MuiIconButton-root:focus-visible {
+  color: #d26d7a;
+  opacity: 1;
+}
+
+.new-item-form {
+  margin-top: 18px;
+}
+
+.new-item-field .MuiFilledInput-root {
+  overflow: hidden;
+  border: 1px solid #e2e8f4;
+  border-radius: 13px;
+  background: var(--subtle-background);
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.new-item-field .MuiFilledInput-root:before,
+.new-item-field .MuiFilledInput-root:after {
+  display: none;
+}
+
+.new-item-field .MuiFilledInput-root.Mui-focused {
+  border-color: #8194ff;
+  box-shadow: 0 0 0 3px rgba(67, 92, 245, 0.13);
+}
+
+.new-item-field .MuiInputLabel-root {
+  color: var(--muted-text);
+}
+
+.new-item-field .MuiIconButton-root {
+  color: #354ee0;
+}
+
+.empty-list-state {
+  display: grid;
+  min-height: 360px;
+  align-content: center;
+  justify-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.empty-list-state .MuiTypography-h5 {
+  font-weight: 700;
+  letter-spacing: -0.4px;
+}
+
+.MuiDialog-paper {
+  border: 1px solid rgba(37, 38, 64, 0.06);
+  box-shadow: 0 24px 80px rgba(35, 33, 71, 0.2) !important;
+}
+
+.MuiDialogTitle-root {
+  font-weight: 700 !important;
+  letter-spacing: -0.3px;
+}
+
+.MuiDialogActions-root .MuiButton-contained {
+  box-shadow: none;
+}
+
+.app-shell[data-theme='dark'] .brand-caption.MuiTypography-root {
+  color: var(--muted-text);
+}
+
+.app-shell[data-theme='dark'] .brand-mark {
+  background: linear-gradient(145deg, #43f0db, #078eaa);
+  box-shadow: 0 0 22px rgba(40, 224, 207, 0.3);
+}
+
+.app-shell[data-theme='dark'] .header-add-button.MuiIconButton-root,
+.app-shell[data-theme='dark'] .list-heading-icon {
+  color: #49f2dc;
+  background: #12333e;
+}
+
+.app-shell[data-theme='dark'] .header-add-button.MuiIconButton-root:hover {
+  background: #194854;
+}
+
+.app-shell[data-theme='dark'] .list-navigation-item.MuiListItemButton-root:hover {
+  color: #49f2dc;
+}
+
+.app-shell[data-theme='dark'] .list-navigation-item.MuiListItemButton-root.Mui-selected {
+  color: #54f4df;
+  background: linear-gradient(100deg, #163f4a, #1b3446);
+  box-shadow: inset 3px 0 #28e0cf;
+}
+
+.app-shell[data-theme='dark'] .todo-panel {
+  border-color: #2b3c52;
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.34),
+    0 0 0 1px rgba(40, 224, 207, 0.035);
+}
+
+.app-shell[data-theme='dark'] .todo-item .MuiCheckbox-root {
+  color: #63738b;
+}
+
+.app-shell[data-theme='dark'] .todo-item .MuiCheckbox-root.Mui-checked {
+  color: #28e0cf;
+}
+
+.app-shell[data-theme='dark'] .todo-item:hover .MuiIconButton-root,
+.app-shell[data-theme='dark'] .todo-item .MuiIconButton-root:focus-visible {
+  color: #ff8a72;
+}
+
+.app-shell[data-theme='dark'] .new-item-field .MuiFilledInput-root {
+  border-color: #34465d;
+}
+
+.app-shell[data-theme='dark'] .new-item-field .MuiFilledInput-root.Mui-focused {
+  border-color: #28e0cf;
+  box-shadow: 0 0 0 3px rgba(40, 224, 207, 0.16);
+}
+
+.app-shell[data-theme='dark'] .MuiDialog-paper {
+  border-color: #34465d;
+}
+
+.app-shell[data-theme='dark'] .MuiDialogTitle-root {
+  color: #f2f7ff;
+}
+
+.app-shell[data-theme='dark'] .MuiDialogContentText-root {
+  color: #a4b3c8;
+}
+
+.app-shell[data-theme='dark'] .MuiButton-contained {
+  color: #071a20;
+  background: #28e0cf;
+}
+
+.app-shell[data-theme='dark'] .MuiButton-contained:hover {
+  background: #52f2e2;
+}
+
+.app-shell[data-theme='dark'] .MuiToggleButton-root {
+  color: #b8c8dc;
+  border-color: #34465d;
+}
+
+.app-shell[data-theme='dark'] .MuiToggleButton-root.Mui-selected {
+  color: #49f2dc;
+  border-color: #28e0cf;
+  background: #12333e;
+}
+
+@media (max-width: 980px) {
+  .focus-layout {
+    grid-template-areas:
+      'tasks'
+      'pulse';
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+    margin-top: 18px;
+  }
+
+  .current-list-page.MuiBox-root {
+    padding-right: 32px;
+    padding-left: 32px;
+  }
+
+  .progress-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(120px, 0.75fr);
+    column-gap: 18px;
+    align-items: center;
+    margin-top: 0;
+  }
+
+  .progress-eyebrow,
+  .progress-title,
+  .progress-description {
+    grid-column: 1;
+  }
+
+  .progress-title.MuiTypography-root {
+    margin-top: 7px;
+  }
+
+  .progress-description.MuiTypography-root {
+    margin-top: 5px;
+  }
+
+  .progress-count {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    justify-self: end;
+    margin-top: 0;
+  }
+
+  .progress-bar,
+  .progress-footer {
+    grid-column: 2;
+  }
+
+  .progress-bar.MuiLinearProgress-root {
+    width: 100%;
+    margin-top: 2px;
+  }
+
+  .progress-note {
+    grid-column: 1 / -1;
+    margin-top: 14px;
+  }
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    flex-direction: column;
+  }
+
+  .app-header .MuiToolbar-root {
+    min-height: 64px;
+    padding: 0 16px;
+  }
+
+  .lists-drawer.MuiDrawer-root {
+    width: 100%;
+    height: 58px;
+    flex: 0 0 58px;
+  }
+
+  .lists-drawer .MuiDrawer-paper {
+    top: 64px;
+    left: 0;
+    width: 100%;
+    height: 58px;
+    padding: 6px 12px;
+    border-right: 0;
+    border-bottom: 1px solid var(--divider-color);
+    background: var(--header-background);
+  }
+
+  .lists-rail-content {
+    min-width: 0;
+    padding: 0;
+  }
+
+  .rail-label.MuiTypography-root {
+    display: none;
+  }
+
+  .lists-navigation.MuiList-root {
+    display: flex;
+    width: 100%;
+    gap: 6px;
+    overflow-x: auto;
+    padding: 0;
+    scrollbar-width: none;
+  }
+
+  .lists-navigation.MuiList-root::-webkit-scrollbar {
+    display: none;
+  }
+
+  .lists-navigation .MuiListItem-root {
+    width: auto;
+    flex: 0 0 auto;
+  }
+
+  .list-navigation-item.MuiListItemButton-root {
+    min-height: 42px;
+    gap: 8px;
+    padding: 0 12px;
+    white-space: nowrap;
+  }
+
+  .list-navigation-item .MuiListItemText-root {
+    display: block;
+    margin: 0;
+  }
+
+  .list-navigation-item .MuiListItemText-primary {
+    max-width: 120px;
+  }
+
+  .current-list-page.MuiBox-root {
+    width: 100%;
+    flex: 1 1 auto;
+    padding: 64px 18px 32px;
+  }
+
+  .todo-panel {
+    min-height: 400px;
+    padding: 26px 22px;
+    border-radius: 18px;
+  }
+}
+
+@media (max-width: 520px) {
+  .brand-caption.MuiTypography-root {
+    display: none;
+  }
+
+  .lists-drawer .MuiDrawer-paper {
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+
+  .current-list-page.MuiBox-root {
+    padding: 64px 12px 24px;
+  }
+
+  .todo-panel {
+    padding: 22px 16px;
+  }
+
+  .list-name-field .MuiInputBase-root {
+    font-size: 21px;
+  }
+
+  .todo-item .MuiIconButton-root {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *:before,
+  *:after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

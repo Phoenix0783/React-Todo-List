@@ -1,11 +1,13 @@
 import * as Icons from '@mui/icons-material';
 import {
+  Box,
   Drawer,
   List,
   ListItem,
   ListItemButton,
   ListItemText,
   Toolbar,
+  Typography,
 } from '@mui/material';
 import { useEffect } from 'react';
 
@@ -24,13 +26,12 @@ export function AllTodoLists() {
 
   return (
     <Drawer
+      className="lists-drawer"
       sx={{
-        width: 0.25,
-        minWidth: 200,
+        width: { xs: '100%', sm: 220, md: 280 },
         flexShrink: 0,
         '& .MuiDrawer-paper': {
-          width: 0.25,
-          minWidth: 200,
+          width: { xs: '100%', sm: 220, md: 280 },
           boxSizing: 'border-box',
         },
       }}
@@ -39,24 +40,28 @@ export function AllTodoLists() {
     >
       {/*Empty Toolbar for spacing*/}
       <Toolbar />
-      <List>
-        {data.map(({ name, id, icon }) => {
-          const Icon = Icons[icon];
-          return (
-            <ListItem key={id} disablePadding>
-              <ListItemButton
-                onClick={() => {
-                  setCurrentList(id);
-                }}
-                selected={currentList === id}
-              >
-                {Icon ? <Icon /> : <Icons.List />}
-                <ListItemText sx={{ ml: 0.5 }} primary={name} />
-              </ListItemButton>
-            </ListItem>
-          );
-        })}
-      </List>
+      <Box className="lists-rail-content">
+        <Typography className="rail-label">YOUR SPACE</Typography>
+        <List className="lists-navigation">
+          {data.map(({ name, id, icon }) => {
+            const Icon = Icons[icon];
+            return (
+              <ListItem key={id} disablePadding>
+                <ListItemButton
+                  className="list-navigation-item"
+                  onClick={() => {
+                    setCurrentList(id);
+                  }}
+                  selected={currentList === id}
+                >
+                  {Icon ? <Icon /> : <Icons.List />}
+                  <ListItemText sx={{ ml: 0.5 }} primary={name} />
+                </ListItemButton>
+              </ListItem>
+            );
+          })}
+        </List>
+      </Box>
     </Drawer>
   );
 }
